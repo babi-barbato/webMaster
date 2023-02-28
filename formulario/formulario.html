@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <link rel="stylesheet" href="style_formulario.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CPF Com For</title>
+    </head>
+
+    <body>
+        <form method="post" name="formulario" action="" onsubmit="return validar()">
+            <div class="input">
+                <label>Nome</label><br>
+                <input class="padrao" type="text" >
+            </div>
+            <div class="input">
+                <label>CPF</label><br>
+                <input class="padrao" id="cpff" type="text" required>
+            </div>
+            <div class="input">
+                <label>Data de nascimento</label><br>
+                <input class="padrao" type="date" required>
+            </div>
+            <div class="input">
+                <label>Whatsapp</label><br>
+                <input class="padrao" type="text" required>
+            </div>
+            <div class="input">
+                <label>Senha</label><br>
+                <input class="padrao" id="swa1" type="password" >
+            </div>
+            <div class="input">
+                <label>Confirmação de senha</label><br>
+                <input class="padrao" id="swa2" type="password" >
+            </div>
+            <div class="input botao">
+                <input class="btn" type="submit">
+            </div>
+        </form>
+    </body>
+    <script>
+            function validar(){
+                //validação das senhas
+                var swa1 = document.getElementById("swa1").value;
+                var swa2 = document.getElementById("swa2").value;
+                var cpf = document.getElementById("cpff").value;
+                cpf = cpf.toString();
+                let numerosIguais = ['11111111111','22222222222','33333333333','44444444444','55555555555','66666666666','77777777777','88888888888','99999999999'];
+
+                if(swa1 != swa2){
+                    alert("senhas diferentes");
+                    document.getElementById("swa1").focus;
+                    return false;
+                }
+                if(cpf == numerosIguais[0||1||2||3||4||5||6||7||8]){
+                    alert("cpf erradoo");
+                    return false;
+                }else{
+                    //validação do cpf
+                    var soma = 0; //soma as variavel
+                    var resto = 0; //resto da divisao de soma por 11
+                    var variavel = 0; //variavel que acomula os numeros multiplicados
+                    var calculo = 0; //variavel usada para fazer o calculo (11-resto)
+                    var dez = cpf.substring(9,10); //pega o numero 10
+                    var onze = cpf.substring(10,11); //pega o numero 11
+                    
+                    for(cont = 1; cont <= 9; cont++){
+                        soma += (variavel = cpf.substring(cont - 1, cont) * (11-cont));
+                    }
+
+                    resto = soma % 11;
+
+                    if(resto == 0 || resto == 1){
+                        if(dez == 0){
+                            calculo = 0;
+                            soma = 0;
+                            resto = 0;
+                            variavel = 0;
+
+                            for(conta = 1; conta <= 10; conta++){
+                                soma += (variavel = cpf.substring(conta - 1, conta) * (12-conta));
+                            }
+
+                            resto = soma % 11;
+
+                            if(resto == 0 || resto == 1){
+                                if(onze == 0){
+                                    return true;
+                                }else{
+                                    alert("CPF invalido");
+                                    document.getElementById("cpf").focus();
+                                    return false;   
+                                }
+                            }else{
+                                calculo = 11 - resto
+
+                                if(onze == calculo){
+                                    return true;
+                                }else{
+                                    alert("CPF invalido");
+                                    document.getElementById("cpf").focus();
+                                    return false;
+                                }
+                            }
+
+                        }else{
+                            alert("CPF invalido");
+                            document.getElementById("cpf").focus();
+                            return false;
+                        }
+                    }else{
+                        calculo = 11 - resto;
+                        
+                        if(dez == calculo ){
+                            calculo = 0;
+                            variavel = 0;
+                            soma = 0;
+                            resto = 0;
+
+                            for(conta = 1; conta <= 10; conta++){
+                                soma += (variavel = cpf.substring(conta - 1, conta) * (12-conta));
+                            }
+
+                            resto = soma % 11;
+
+                            if(resto == 0 || resto == 1){
+                                if(onze == 0){
+                                    return true;
+                                }else{
+                                    alert("CPF invalido");
+                                    document.getElementById("cpf").focus();
+                                    return false;   
+                                }
+                            }else{
+                                var calculo = 11 - resto
+
+                                if(onze == calculo){
+                                    return true;
+                                }else{
+                                    alert("CPF invalido");
+                                    document.getElementById("cpf").focus();
+                                    return false;
+                                }
+                            }
+
+                        }else{
+                            alert("CPF invalido");
+                            document.getElementById("cpf").focus();
+                            return false;
+                        }
+                    }
+                }
+
+            }
+    </script>
+</html>

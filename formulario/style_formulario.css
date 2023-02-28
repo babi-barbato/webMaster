@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{margin: 0; padding: 0;}
+
+body{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-family: 'poppins' ,'display';
+    background-image:linear-gradient(to right, #da54ec 0, #c04bee 16.67%, #a042f0 33.33%, #783cf2 50%, #3739f3 66.67%, #0038f5 83.33%, #003af6 100%);
+
+}
+form{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 20px;
+    background-color: white;
+}
+.botao{
+    text-align: center;
+}
+.btn{
+    font-size: 18px;
+    color: white;
+    height: 30px;
+    border-radius: 10px;
+    background-color:#a042f0;
+    width: 40%;
+}
+.input{
+    margin: 13px;
+}
+div .padrao{
+    font-size: 15px;
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    form{
+        font-size: 20px;
+        grid-column-start: 2;
+        grid-column-end: 3;
+    }
+    div .padrao{
+        font-size: 20px;
+        width: 100%;
+    }
+    .body{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
