@@ -4,10 +4,13 @@
 
 body{
     display: grid;
+    text-align: center;
     grid-template-columns: repeat(3, 1fr);
     font-family: 'poppins' ,'display';
     background-image:linear-gradient(to right, #da54ec 0, #c04bee 16.67%, #a042f0 33.33%, #783cf2 50%, #3739f3 66.67%, #0038f5 83.33%, #003af6 100%);
-
+    align-items: center;
+    height: 100vh;
+    font-size: 20px;
 }
 form{
     grid-column-start: 1;
@@ -17,23 +20,22 @@ form{
     padding: 20px;
     background-color: white;
 }
-.botao{
-    text-align: center;
+input{
+    height: 30px;
+    width: 80%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: "2px solid black";;
 }
 .btn{
+    text-align: center;
+    margin: 8px;
     font-size: 18px;
     color: white;
     height: 30px;
     border-radius: 10px;
     background-color:#a042f0;
-    width: 40%;
-}
-.input{
-    margin: 13px;
-}
-div .padrao{
-    font-size: 15px;
-    width: 100%;
+    width: 60%;
 }
 
 @media only screen and (min-width: 600px) {
@@ -41,14 +43,6 @@ div .padrao{
         font-size: 20px;
         grid-column-start: 2;
         grid-column-end: 3;
-    }
-    div .padrao{
-        font-size: 20px;
-        width: 100%;
-    }
-    .body{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
     }
 
 }
