@@ -46,13 +46,14 @@ function dataLimite(){
   var ano = hoje.getFullYear();
   
   if(dia < 10){
-    dia = "0" + dia;
-  }else if(mes < 10){
-    mes = "0" + mes;
+    dia = '0' + dia;
+  }
+  if(mes < 10){
+    mes = '0' + mes;
   }
 
-  hoje = `${ano}-${mes}-${dia}`;
-  document.getElementById("Nasc".setAttribute("max",hoje));
+  hoje = ano + '-' + mes + '-' + dia;/*`${ano}-${mes}-${dia}`;*/
+  document.getElementById("Nasc").setAttribute("max",hoje);
 }
 
 
